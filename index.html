@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+</head>
+<body>
+    <h1>Rock Paper Scissor</h1>
+
+    <div id="notify">
+        <div id="result">
+            <div>
+                <div id="computerImage"></div>
+                <span>Computer</span>
+            </div>
+            <div>
+                <img src="./assets/fight.png" alt="VS">
+            </div>
+            <div>
+                <div id="userImage"></div>
+                <span>you</span>
+            </div>
+        </div>
+
+        <div id="showMessage">
+            <span id="message">result will be shown here!</span>
+        </div>
+
+        <svg id="closeButton" fill="#000000" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M697.4 759.2l61.8-61.8L573.8 512l185.4-185.4-61.8-61.8L512 450.2 326.6 264.8l-61.8 61.8L450.2 512 264.8 697.4l61.8 61.8L512 573.8z"/></svg>
+    </div>
+    
+    <div id="container">
+        <div class="images" >
+            <img data-number="0" src="./assets/rock.png" alt="rock" id="rock">
+        </div>
+        <div class="images" >
+            <img data-number="1" src="./assets/paper.png" alt="paper" id="paper">
+        </div>
+        <div class="images" >
+            <img data-number="2" src="./assets/scissor.png" alt="scissor" id="scissor">
+        </div>
+    </div>
+
+    <div id="control_board">
+        <div id="scores">
+            you: <div id="user_score"></div>
+            computer: <div id="computer_score"></div>
+        </div>
+        <div id="button">
+            <button>New Game</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

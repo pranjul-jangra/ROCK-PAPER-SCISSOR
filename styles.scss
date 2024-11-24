@@ -1,0 +1,446 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$grid-width: 13vw;
+
+body {
+    background-color: cornsilk;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+h1 {
+    width: 100vw;
+    margin-block: 2vw;
+    font-size: 38px;
+    text-shadow: 0 0 2px red, 0 0 4px pink;
+}
+
+#notify {
+    position: fixed;
+    top: 8vh;
+    width: 90vw;
+    height: 70vh;
+    left: 5vw;
+    background-color: cadetblue;
+    @include flex-center;
+    flex-direction: column;
+    gap: 10vh;
+    border-top: 0.4vw solid black;
+    border-bottom-left-radius: 7vw;
+    transform: translateY(-70vh);
+    opacity: 0;
+    transition: all 0.4s;
+    z-index: 5;
+
+    #result {
+        width: 90%;
+        @include flex-center;
+        gap: 15vw;
+
+        div {
+            width: $grid-width;
+            aspect-ratio: 1/1;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        img {
+            width: 100%;
+            padding: 1vw;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+
+    #message {
+        font-size: 33px;
+        font-weight: 700;
+    }
+
+    svg {
+        position: absolute;
+        top: -4.6%;
+        right: -1.2%;
+        width: 4vw;
+        aspect-ratio: 1/1;
+        background-color: red;
+        border-radius: 50%;
+    }
+}
+
+#container {
+    width: 100vw;
+    @include flex-center;
+    gap: 10vw;
+
+    div {
+        width: $grid-width;
+        border: 0.2vw solid black;
+        border-radius: 50%;
+        background-color: aquamarine;
+        box-shadow: 0 0 1vw pink, 0 0 1.2vw rgba(128, 128, 128, 0.87);
+
+        img {
+            width: 90%;
+            aspect-ratio: 1/1;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+}
+
+#control_board {
+    width: 100vw;
+    @include flex-center;
+    margin-top: 20vh;
+    gap: 20vw;
+
+    #scores {
+        @include flex-center;
+        flex-direction: column;
+        width: 15vw;
+
+        div {
+            width: 100%;
+            background-color: white;
+            padding-block: 0.3vw;
+            border: 0.2vw solid black;
+            border-radius: 0.5vw;
+        }
+    }
+
+    #button {
+        width: 15vw;
+
+        button {
+            all: unset;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding-block: 0.3vw;
+            border: 0.2vw solid black;
+            border-radius: 0.5vw;
+            cursor: pointer;
+            transition: all 0.4s;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+
+            &::after,
+            &::before {
+                content: "";
+                position: absolute;
+                width: 200%;
+                height: 400%;
+                background-color: rgba(0, 0, 0, 0.58);
+                border-radius: 50%;
+                z-index: -1;
+            }
+
+            &::after {
+                top: -99.2%;
+                right: -80%;
+                animation: rotate 6s infinite alternate-reverse;
+            }
+
+            &::before {
+                top: -99.2%;
+                left: -80%;
+                animation: rotate 11s infinite;
+            }
+
+            &:hover {
+                border: 0.2vw solid rgb(232, 192, 15);
+            }
+
+            @keyframes rotate {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
+}
+
+@media (min-width:2000px) {
+    body {
+        font-size: 45px;
+    }
+
+    $grid-width: 17vw;
+
+    h1 {
+        font-size: 59px;
+    }
+
+    #notify {
+        #result {
+            div {
+                width: $grid-width;
+            }
+        }
+
+        #message {
+            font-size: 65px;
+        }
+    }
+
+    #container {
+        div {
+            width: $grid-width;
+            border: 0.25vw solid black;
+            box-shadow: 0 0 2vw pink, 0 0 2.8vw rgba(128, 128, 128, 0.87);
+        }
+    }
+}
+
+@media (max-width:900px) {
+    body {
+        font-size: 17px;
+    }
+
+    $grid-width: 17.6vw;
+
+    h1 {
+        font-size: 27px;
+    }
+
+    #notify {
+        #result {
+            gap: 13.7vw;
+
+            div {
+                width: $grid-width;
+            }
+        }
+
+        #message {
+            font-size: 31px;
+        }
+    }
+
+    #container {
+        div {
+            width: $grid-width;
+            border: 0.16vw solid black;
+            box-shadow: 0 0 0.8vw pink, 0 0 1.3vw rgba(128, 128, 128, 0.87);
+        }
+    }
+}
+
+@media (max-width:740px) {
+
+    h1 {
+        margin-top: 2.2vw;
+        margin-bottom: 3vw;
+    }
+
+    #notify {
+        svg {
+            top: -3.4%;
+            right: -1.1%;
+        }
+    }
+}
+
+@media (max-width:630px) {
+    body {
+        font-size: 15.6px;
+    }
+
+    $grid-width: 19vw;
+
+    h1 {
+        font-size: 27px;
+        margin-top: 2.3vw;
+        margin-bottom: 4vw;
+    }
+
+    #notify {
+        height: 60vh;
+        gap: 7vh;
+
+        #result {
+            gap: 12vw;
+
+            div {
+                width: $grid-width;
+            }
+        }
+
+        #message {
+            font-size: 27px;
+        }
+    }
+
+    #container {
+        div {
+            width: $grid-width;
+            border: 0.16vw solid black;
+            box-shadow: 0 0 1vw pink, 0 0 1.7vw rgba(128, 128, 128, 0.87);
+        }
+    }
+
+    #control_board {
+        margin-top: 19vh;
+        gap: 20vw;
+
+        #scores {
+            width: 20vw;
+
+            div {
+                padding-block: 0.45vw;
+            }
+        }
+
+        #button {
+            width: 20vw;
+        }
+    }
+}
+
+@media (max-width:510px) {
+
+    $grid-width: 22vw;
+
+    h1 {
+        margin-top: 2.4vw;
+        margin-bottom: 6vw;
+    }
+
+    #notify {
+        height: 57vh;
+        gap: 6vh;
+
+        #result {
+            gap: 10vw;
+
+            div {
+                width: $grid-width;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        #message {
+            font-size: 27px;
+        }
+    }
+
+    #container {
+        div {
+            width: $grid-width;
+            border: 0.19vw solid black;
+            box-shadow: 0 0 1.2vw pink, 0 0 2vw rgba(128, 128, 128, 0.87);
+        }
+    }
+
+    #control_board {
+        margin-top: 19vh;
+        gap: 17vw;
+
+        #scores {
+            width: 24vw;
+
+            div {
+                padding-block: 0.45vw;
+            }
+        }
+
+        #button {
+            width: 24vw;
+        }
+    }
+}
+
+@media (max-width:460px) {
+    #notify {
+        svg {
+            top: -3.1%;
+            right: -1%;
+            width: 5.3vw;
+        }
+    }
+}
+
+@media (max-width:440px) {
+    $grid-width: 27vw;
+
+    #notify {
+        height: 47vh;
+        width: 95vw;
+        gap: 5vh;
+        left: 2vw;
+
+        #result {
+            gap: 5vw;
+
+            div {
+                width: $grid-width;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        #message {
+            font-size: 22px;
+        }
+
+        svg {
+            top: -2.8%;
+            right: -0.8%;
+            width: 6.2vw;
+        }
+    }
+
+    #container {
+        gap: 5vw;
+
+        div {
+            width: $grid-width;
+        }
+    }
+}
+
+@media (max-width:320px) {
+    body {
+        font-size: 16px;
+    }
+
+    #control_board {
+        gap: 7vw;
+
+        #scores {
+            width: 29vw;
+
+            div {
+                width: 100%;
+            }
+        }
+
+        #button {
+            width: 29vw;
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
