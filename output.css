@@ -81,10 +81,14 @@ h1 {
 }
 #container div {
   width: 13vw;
+  aspect-ratio: 1/1;
   border: 0.2vw solid black;
   border-radius: 50%;
   background-color: aquamarine;
   box-shadow: 0 0 1vw pink, 0 0 1.2vw rgba(128, 128, 128, 0.87);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #container div img {
   width: 90%;
@@ -281,15 +285,17 @@ h1 {
   #control_board {
     margin-top: 19vh;
     gap: 17vw;
+    flex-direction: column;
+    font-size: 20px;
   }
   #control_board #scores {
-    width: 24vw;
+    width: 50vw;
   }
   #control_board #scores div {
     padding-block: 0.45vw;
   }
   #control_board #button {
-    width: 24vw;
+    width: 50vw;
   }
 }
 @media (max-width: 460px) {

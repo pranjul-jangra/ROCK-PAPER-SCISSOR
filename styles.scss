@@ -88,10 +88,12 @@ h1 {
 
     div {
         width: $grid-width;
+        aspect-ratio: 1/1;
         border: 0.2vw solid black;
         border-radius: 50%;
         background-color: aquamarine;
         box-shadow: 0 0 1vw pink, 0 0 1.2vw rgba(128, 128, 128, 0.87);
+        @include flex-center;
 
         img {
             width: 90%;
@@ -353,9 +355,11 @@ h1 {
     #control_board {
         margin-top: 19vh;
         gap: 17vw;
+        flex-direction: column;
+        font-size: 20px;
 
         #scores {
-            width: 24vw;
+            width: 50vw;
 
             div {
                 padding-block: 0.45vw;
@@ -363,9 +367,83 @@ h1 {
         }
 
         #button {
-            width: 24vw;
+            width: 50vw;
         }
     }
+
+    // #control_board {
+    //     width: 100vw;
+    //     @include flex-center;
+    //     margin-top: 20vh;
+    //     gap: 20vw;
+
+    //     #scores {
+    //         @include flex-center;
+    //         flex-direction: column;
+    //         width: 15vw;
+
+    //         div {
+    //             width: 100%;
+    //             background-color: white;
+    //             padding-block: 0.3vw;
+    //             border: 0.2vw solid black;
+    //             border-radius: 0.5vw;
+    //         }
+    //     }
+
+    //     #button {
+    //         width: 15vw;
+
+    //         button {
+    //             all: unset;
+    //             width: 100%;
+    //             background-color: rgba(0, 0, 0, 0.6);
+    //             padding-block: 0.3vw;
+    //             border: 0.2vw solid black;
+    //             border-radius: 0.5vw;
+    //             cursor: pointer;
+    //             transition: all 0.4s;
+    //             color: white;
+    //             position: relative;
+    //             overflow: hidden;
+    //             z-index: 1;
+
+    //             &::after,
+    //             &::before {
+    //                 content: "";
+    //                 position: absolute;
+    //                 width: 200%;
+    //                 height: 400%;
+    //                 background-color: rgba(0, 0, 0, 0.58);
+    //                 border-radius: 50%;
+    //                 z-index: -1;
+    //             }
+
+    //             &::after {
+    //                 top: -99.2%;
+    //                 right: -80%;
+    //                 animation: rotate 6s infinite alternate-reverse;
+    //             }
+
+    //             &::before {
+    //                 top: -99.2%;
+    //                 left: -80%;
+    //                 animation: rotate 11s infinite;
+    //             }
+
+    //             &:hover {
+    //                 border: 0.2vw solid rgb(232, 192, 15);
+    //             }
+
+    //             @keyframes rotate {
+    //                 to {
+    //                     transform: rotate(360deg);
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
 }
 
 @media (max-width:460px) {
