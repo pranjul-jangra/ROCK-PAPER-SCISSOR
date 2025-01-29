@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: cornsilk;
+  background-color: rgb(252, 247, 225);
   font-size: 22px;
   font-weight: 600;
 }
@@ -21,7 +21,7 @@ h1 {
 
 #notify {
   position: fixed;
-  top: 8vh;
+  top: 70px;
   width: 90vw;
   height: 70vh;
   left: 5vw;
@@ -31,7 +31,7 @@ h1 {
   align-items: center;
   flex-direction: column;
   gap: 10vh;
-  border-top: 0.4vw solid black;
+  outline: 0.4vw solid black;
   border-bottom-left-radius: 7vw;
   transform: translateY(-70vh);
   opacity: 0;
@@ -64,12 +64,14 @@ h1 {
 }
 #notify svg {
   position: absolute;
-  top: -4.6%;
-  right: -1.2%;
-  width: 4vw;
+  top: 0;
+  right: 0;
+  width: 30px;
+  outline: 1px solid black;
+  box-shadow: -1px 1px white;
   aspect-ratio: 1/1;
   background-color: red;
-  border-radius: 50%;
+  border-radius: 0 0 0 8px;
 }
 
 #container {
@@ -103,32 +105,35 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-top: 20vh;
-  gap: 20vw;
+  gap: 200px;
 }
 #control_board #scores {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 15vw;
+  width: 170px;
+  gap: 4px;
 }
 #control_board #scores div {
   width: 100%;
   background-color: white;
-  padding-block: 0.3vw;
-  border: 0.2vw solid black;
-  border-radius: 0.5vw;
+  outline: 1.2px solid black;
+  border-radius: 6px;
+  font-size: 22px;
 }
 #control_board #button {
-  width: 15vw;
+  width: 170px;
 }
 #control_board #button button {
   all: unset;
   width: 100%;
   background-color: white;
-  padding-block: 0.3vw;
-  border: 0.2vw solid black;
-  border-radius: 0.5vw;
+  font-size: 22px;
+  outline: 0.2vw solid black;
+  outline-offset: 0.2px;
+  border: 1px solid rgb(232, 192, 15);
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.4s;
   color: white;
@@ -147,16 +152,13 @@ h1 {
 }
 #control_board #button button::after {
   top: -99.2%;
-  right: -80%;
+  right: -78%;
   animation: rotate 6s infinite alternate-reverse;
 }
 #control_board #button button::before {
   top: -99.2%;
-  left: -80%;
+  left: -78%;
   animation: rotate 11s infinite;
-}
-#control_board #button button:hover {
-  border: 0.2vw solid rgb(232, 192, 15);
 }
 @keyframes rotate {
   to {
@@ -210,10 +212,6 @@ h1 {
     margin-top: 2.2vw;
     margin-bottom: 3vw;
   }
-  #notify svg {
-    top: -3.4%;
-    right: -1.1%;
-  }
 }
 @media (max-width: 630px) {
   body {
@@ -244,16 +242,7 @@ h1 {
   }
   #control_board {
     margin-top: 19vh;
-    gap: 20vw;
-  }
-  #control_board #scores {
-    width: 20vw;
-  }
-  #control_board #scores div {
-    padding-block: 0.45vw;
-  }
-  #control_board #button {
-    width: 20vw;
+    gap: 90px;
   }
 }
 @media (max-width: 510px) {
@@ -284,25 +273,8 @@ h1 {
   }
   #control_board {
     margin-top: 19vh;
-    gap: 17vw;
+    gap: 20px;
     flex-direction: column;
-    font-size: 20px;
-  }
-  #control_board #scores {
-    width: 50vw;
-  }
-  #control_board #scores div {
-    padding-block: 0.45vw;
-  }
-  #control_board #button {
-    width: 50vw;
-  }
-}
-@media (max-width: 460px) {
-  #notify svg {
-    top: -3.1%;
-    right: -1%;
-    width: 5.3vw;
   }
 }
 @media (max-width: 440px) {
@@ -324,11 +296,6 @@ h1 {
   #notify #message {
     font-size: 22px;
   }
-  #notify svg {
-    top: -2.8%;
-    right: -0.8%;
-    width: 6.2vw;
-  }
   #container {
     gap: 5vw;
   }
@@ -339,21 +306,6 @@ h1 {
 @media (max-width: 320px) {
   body {
     font-size: 16px;
-  }
-  #control_board {
-    gap: 7vw;
-  }
-  #control_board #scores {
-    width: 29vw;
-  }
-  #control_board #scores div {
-    width: 100%;
-  }
-  #control_board #button {
-    width: 29vw;
-  }
-  #control_board #button button {
-    width: 100%;
   }
 }
 
