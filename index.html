@@ -3,73 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Play the classic Rock Paper Scissor game online. Challenge the computer and see if you can win! Fun, free, and simple.">
-    <meta name="keywords" content="Rock Paper Scissor game, play online, fun game, classic games">
-    <title>Rock Paper Scissor Game - Play Online</title>
+    <title>Pro Rock Paper Scissors - Ultimate Gaming Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="output.css">
     <link rel="icon" type="image/png" href="./assets/favicon.png">
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "Game",
-            "name": "Rock Paper Scissor Game",
-            "description": "Play the classic Rock Paper Scissor game online. Challenge the computer and see if you can win!",
-            "image": "./assets/favicon.png",
-            "url": "https://pranjul-jangra.github.io/ROCK-PAPER-SCISSOR/",
-            "author": {
-                "@type": "Person",
-                "name": "Pranjul"
-            }
-        }
-    </script>
 </head>
 <body>
-    <h1 aria-label="Title: Rock Paper Scissor">Rock Paper Scissor</h1>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
 
-    <div id="notify">
-        <div id="result">
-            <div>
-                <div id="computerImage"></div>
-                <span>Computer</span>
-            </div>
-            <div>
-                <img src="./assets/fight.png" alt="VS">
-            </div>
-            <div>
-                <div id="userImage"></div>
-                <span>you</span>
-            </div>
-        </div>
+    <!-- Sound Toggle -->
+    <button class="sound-toggle" id="soundToggle">🔊</button>
 
-        <div id="showMessage">
-            <span id="message">Result will be shown here!</span>
-        </div>
-
-        <svg id="closeButton" fill="#000000" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M697.4 759.2l61.8-61.8L573.8 512l185.4-185.4-61.8-61.8L512 450.2 326.6 264.8l-61.8 61.8L450.2 512 264.8 697.4l61.8 61.8L512 573.8z"/></svg>
+    <!-- Achievement Popup -->
+    <div class="achievement-popup" id="achievementPopup">
+        <div class="achievement-title" id="achievementTitle">Achievement Unlocked!</div>
+        <div class="achievement-description" id="achievementDescription">First Win!</div>
     </div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1 class="title">PRO ROCK PAPER SCISSORS</h1>
+        <p class="subtitle">The Ultimate Gaming Experience</p>
+    </header>
+
+    <!-- Game Modes -->
+    <div class="game-modes">
+        <button class="mode-btn active" data-mode="classic">Classic</button>
+        <button class="mode-btn" data-mode="best-of-3">Best of 3</button>
+        <button class="mode-btn" data-mode="best-of-5">Best of 5</button>
+        <button class="mode-btn" data-mode="tournament">Tournament</button>
+    </div>
+
+    <!-- Difficulty Selection -->
+    <div class="difficulty-panel">
+        <button class="difficulty-btn easy active" data-difficulty="easy">Easy</button>
+        <button class="difficulty-btn medium" data-difficulty="medium">Medium</button>
+        <button class="difficulty-btn hard" data-difficulty="hard">Hard</button>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container">
+        <!-- Tournament Bracket -->
+        <div class="tournament-bracket" id="tournamentBracket">
+            <div class="bracket-round">
+                <div class="bracket-match">Quarter Final 1</div>
+                <div class="bracket-match">Quarter Final 2</div>
+                <div class="bracket-match">Quarter Final 3</div>
+                <div class="bracket-match">Quarter Final 4</div>
+            </div>
+            <div class="bracket-round">
+                <div class="bracket-match">Semi Final 1</div>
+                <div class="bracket-match">Semi Final 2</div>
+            </div>
+            <div class="bracket-round">
+                <div class="bracket-match">Final</div>
+            </div>
+            <div class="bracket-round">
+                <div class="bracket-match">Champion</div>
+            </div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="game-board">
+            <div class="player-section">
+                <div class="player-choice" id="playerChoice">❓</div>
+                <div class="player-name">You</div>
+                <div class="player-score" id="playerScore">0</div>
+            </div>
+            
+            <div class="vs-section">VS</div>
+            
+            <div class="player-section">
+                <div class="player-choice" id="computerChoice">❓</div>
+                <div class="player-name" id="computerName">Computer</div>
+                <div class="player-score" id="computerScore">0</div>
+            </div>
+        </div>
+
+        <!-- Game Result -->
+        <div class="game-result">
+            <div class="result-message" id="resultMessage">Make your choice!</div>
+        </div>
+
+        <!-- Choice Selection -->
+        <div class="choice-selection" id="choiceSelection">
+            <button class="choice-btn" data-choice="rock">🪨</button>
+            <button class="choice-btn" data-choice="paper">📄</button>
+            <button class="choice-btn" data-choice="scissors">✂️</button>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <button class="control-btn primary" id="newGameBtn">New Game</button>
+            <button class="control-btn" id="resetStatsBtn">Reset Stats</button>
+            <button class="control-btn" id="showStatsBtn">Show Stats</button>
+        </div>
+
+        <!-- Statistics Panel -->
+        <div class="stats-panel" id="statsPanel">
+            <div class="stat-card">
+                <div class="stat-value" id="totalGamesPlayed">0</div>
+                <div class="stat-label">Games Played</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="winRate">0%</div>
+                <div class="stat-label">Win Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="currentStreak">0</div>
+                <div class="stat-label">Current Streak</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="bestStreak">0</div>
+                <div class="stat-label">Best Streak</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="customConfirm" class="modal hidden">
+        <div class="modal-content">
+            <p id="confirmMessage">Are you sure?</p>
+            <div class="modal-actions">
+                <button id="confirmYes" class="btn confirm">Yes</button>
+                <button id="confirmNo" class="btn cancel">No</button>
+            </div>
+        </div>
+    </div>
+
+
     
-    <div id="container">
-        <div class="images" aria-label="Rock">
-            <img data-number="0" src="./assets/rock.png" alt="rock" id="rock">
-        </div>
-        <div class="images" aria-label="Paper">
-            <img data-number="1" src="./assets/paper.png" alt="paper" id="paper">
-        </div>
-        <div class="images" aria-label="Scissor">
-            <img data-number="2" src="./assets/scissor.png" alt="scissor" id="scissor">
-        </div>
-    </div>
-
-    <div id="control_board">
-        <div id="scores" aria-label="score board">
-            you: <div id="user_score" aria-label="your score"></div>
-            computer: <div id="computer_score" aria-label="your device score"></div>
-        </div>
-        <div id="button">
-            <button>New Game</button>
-        </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
