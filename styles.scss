@@ -679,38 +679,6 @@ body::after {
     border-color: transparent;
 }
 
-/* Tournament Mode */
-.tournament-bracket {
-    display: none;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.tournament-bracket.active {
-    display: grid;
-}
-
-.bracket-round {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.bracket-match {
-    background: var(--glass-bg);
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    text-align: center;
-}
-
-.bracket-match.winner {
-    border-color: #4facfe;
-    box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
-}
-
 /* Achievement System */
 .achievement-popup {
     position: fixed;

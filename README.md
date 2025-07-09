@@ -15,7 +15,6 @@
   - Classic (Single round)
   - Best of 3
   - Best of 5
-  - Tournament mode
 
 - **Difficulty Levels**:
   - Easy

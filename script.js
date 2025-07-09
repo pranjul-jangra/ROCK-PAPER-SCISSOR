@@ -37,6 +37,17 @@ class initializeGame {
         this.bindEvents();
         this.updateDisplay();
         this.updateStatsDisplay();
+        this.syncStatsButtonLabel();
+    }
+
+    syncStatsButtonLabel() {
+        const statsPanel = document.getElementById('statsPanel');
+        const showBtn = document.getElementById('showStatsBtn');
+        const isVisible = statsPanel && getComputedStyle(statsPanel).display !== 'none';
+
+        if (showBtn) {
+            showBtn.textContent = isVisible ? 'Hide Stats' : 'Show Stats';
+        }
     }
 
     // Bind the event handlers
@@ -94,10 +105,6 @@ class initializeGame {
                 break;
             case 'best-of-5':
                 this.maxRounds = 5;
-                break;
-            case 'tournament':
-                this.maxRounds = 1;
-                this.setupTournament();
                 break;
             default:
                 this.maxRounds = 1;
@@ -385,7 +392,7 @@ class initializeGame {
         this.disableChoices();
 
         // Auto-start new game after delay
-        setTimeout(() => this.newGame(), 4000);
+        setTimeout(() => this.newGame(), 200);
     }
 
     newGame() {
@@ -419,11 +426,6 @@ class initializeGame {
         document.querySelectorAll('.choice-btn').forEach(btn => {
             btn.classList.add('disabled');
         });
-    }
-
-    setupTournament() {
-        document.getElementById('tournamentBracket').classList.add('active');
-        // Tournament logic would go here
     }
 
     checkAchievements() {
@@ -503,12 +505,14 @@ class initializeGame {
         const statsPanel = document.getElementById('statsPanel');
         const showBtn = document.getElementById('showStatsBtn');
 
-        if (statsPanel.style.display === 'none' || !statsPanel.style.display) {
-            statsPanel.style.display = 'grid';
-            showBtn.textContent = 'Hide Stats';
-        } else {
+        const isVisible = getComputedStyle(statsPanel).display !== 'none';
+
+        if (isVisible) {
             statsPanel.style.display = 'none';
             showBtn.textContent = 'Show Stats';
+        } else {
+            statsPanel.style.display = 'grid';
+            showBtn.textContent = 'Hide Stats';
         }
     }
 
