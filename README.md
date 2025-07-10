@@ -1,5 +1,7 @@
 # 🪨✂️📄 Rock Paper Scissors
 
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
+
 **Rock Paper Scissors** is a modern, interactive, and visually engaging web-based version of the classic game — with added game modes, difficulty levels, and stat tracking to enhance your gaming experience.
 
 
